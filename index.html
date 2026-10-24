@@ -940,7 +940,7 @@
                 }
             ],
             skills: {
-                "Identity & Access Management": ["IBM Security Verify SaaS", "ISVG-IM/IVIG", "ISVG-IG/IGI", "ISDI/TDI", "ISV-IQ/ISIQ", "ISIGADI", "LDAP", "Identity Governance (IGA)", "Identity Lifecycle Management"],
+                "Identity & Access Management": ["Identity Security", "Identity & Access Management (IAM)", "Identity Governance & Administration (IGA)", "ISV SaaS", "ISVG-IM/IVIG", "ISVG-IG/IGI", "ISDI/TDI", "ISV-IQ/ISIQ", "ISIGADI", "LDAP", "Identity Lifecycle Management"],
                 "Technical Leadership & Delivery": ["Architecture & Delivery", "IAM Solution Architecture", "Governance Architecture", "Integration Design", "Requirements Analysis", "Stakeholder Management", "Scrum Master"],
                 "Programming & Automation": ["Java 8", "Python", "JavaScript", "SQL (MySQL, Oracle, DB2)", "Bash / Shell Scripting", "PowerShell", "Batch (BAT)", "Golang"],
                 "Testing & Web Technologies": ["Selenium (Java/Python)", "Cucumber", "Automated Testing", "HTML5, CSS3, Bootstrap", "PHP & Laravel", "React"],
@@ -1275,7 +1275,7 @@
                         ${data.map(proj => `
                             <div style="margin-bottom: 12pt;">
                                 <div style="margin-bottom: 2pt;">
-                                    <span style="font-weight: bold;">${proj.title}</span> | <span style="font-style: italic;">Client: ${proj.client}</span>
+                                    <span style="font-size: 13pt; font-weight: bold;">${proj.title}</span> | <span style="font-style: italic;">Client: ${proj.client}</span>
                                 </div>
                                 <div style="text-align: justify; margin-bottom: 4pt;">${proj.brief}</div>
                                 <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 4pt;">
@@ -1337,7 +1337,7 @@
                             <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="${index * 100}">
                                 <div class="hover-card p-4 d-flex flex-column align-items-start position-relative">
                                     <div class="w-100 mb-2">
-                                        <h4 class="text-primary fw-bold d-inline-block m-0">${cert.title}</h4>
+                                        <span class="text-primary h4 fw-bold m-0">${cert.title}</span>
                                         <span class="text-muted fw-semibold ms-1">(${cert.issuer})</span>
                                     </div>
                                     <div class="mb-2">
