@@ -50,6 +50,11 @@
             text-align: justify;
         }
 
+        #app {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         /* Glassmorphism Navbar */
         .glass-nav {
             background: rgba(255, 255, 255, 0.85);
@@ -107,8 +112,6 @@
             background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%);
             z-index: 0;
         }
-        .shape-1 { width: 600px; height: 600px; top: -100px; right: -100px; }
-        .shape-2 { width: 400px; height: 400px; bottom: -50px; left: -100px; }
 
         .hero-content {
             position: relative;
@@ -122,6 +125,7 @@
             margin-bottom: 0.5rem;
             background: linear-gradient(to right, #ffffff, #94a3b8);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -758,6 +762,7 @@
                     <li class="nav-item"><a class="nav-link" href="#engagements">Engagements</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#credentials">Credentials</a></li>
                 </ul>
             </div>
         </div>
@@ -1165,7 +1170,9 @@
                             
                             <!-- Isolated Print About -->
                             <div class="print-only">
-                                ${data.map(p => `<p style="text-align: justify; margin-bottom: 6pt;">${p}</p>`).join('')}
+                                <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 4pt;">
+                                   ${data.map(p => `<li style="text-align: justify; margin-bottom: 2pt;">${p}</li>`).join('')}
+                                </ul>
                             </div>
                             
                         </div>
@@ -1362,7 +1369,7 @@
         `;
 
         const renderEducationAndAwards = (eduArray, awards) => `
-            <section id="education">
+            <section id="credentials">
                 <div class="container">
                     
                     <!-- Web UI Education and Awards -->
