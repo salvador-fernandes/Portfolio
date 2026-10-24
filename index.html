@@ -829,7 +829,7 @@
         const portfolioData = {
             profile: {
                 name: "Salvador Fernandes",
-                title: "IAM Solutions Lead | IBM Security Verify Specialist",
+                title: ["IAM Solutions Lead" , "IBM Security Verify Specialist"],
                 contact: {
                     email: "cleven.ferns@gmail.com",
                     phone: "+91 8551986689",
@@ -1088,7 +1088,7 @@
                             
                             <!-- Web UI Hero -->
                             <h1 class="hero-name web-only">${data.name}</h1>
-                            <p class="hero-title web-only">${data.title}</p>
+                            <p class="hero-title web-only">${data.title.join("|")}</p>
                             
                             <div class="contact-links mt-4 web-only">
                                 <button type="button" data-type="linkedin" onclick="revealContact(this, 'linkedin')"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</button>
@@ -1099,7 +1099,7 @@
                             <!-- Fully Isolated PDF Print Hero -->
                             <div class="print-only">
                                 <h1 class="hero-name">${data.name}</h1>
-                                <p class="hero-title">${data.title}</p>
+                                <p class="hero-title">${data.title.join("|")}</p>
                                 <div class="print-contacts">
                                     <span>${data.contact.linkedin}</span> &nbsp;|&nbsp;
                                     <span>${data.contact.email}</span> &nbsp;|&nbsp;                                    
