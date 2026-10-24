@@ -859,7 +859,7 @@
                 {
                     company: "ISSQUARED Inc.",
                     startDate: "Aug 2025", 
-                    endDate: "Present",
+                    endDate: null,
                     roles: [
                         { title: "Distinguished Engineer - IAM", startDate: "Aug 2025", endDate: "Present" }
                     ]
@@ -1015,7 +1015,7 @@
             const monthsMap = { 'Jan':0, 'Feb':1, 'Mar':2, 'Apr':3, 'May':4, 'Jun':5, 'Jul':6, 'Aug':7, 'Sep':8, 'Oct':9, 'Nov':10, 'Dec':11 };
             
             const parseDateStr = (str) => {
-                if (str.toLowerCase() === 'present') return new Date();
+                if (str == null || str.trim() === "" || str.toLowerCase() === 'present') return new Date();
                 const parts = str.split(' ');
                 if (parts.length !== 2) return new Date();
                 const monthStr = parts[0].substring(0,3);
@@ -1038,10 +1038,16 @@
             return durationArr.length > 0 ? durationArr.join(' ') : '1 mo';
         }
 
+        function checkDate(str){
+            if (str == null || str.trim() === "" || str.toLowerCase() === 'present') return "Present";
+            return str;
+        }
+        
         // Action Handlers
         window.revealContact = function(btn, type) {
             const contact = portfolioData.profile.contact;
-            if(type === 'email') {
+
+            if (type === 'email') {
                 btn.innerHTML = `<i class="fa-solid fa-envelope"></i> ${contact.email}`;
                 btn.onclick = () => window.location.href = `mailto:${contact.email}`;
             } else if (type === 'linkedin') {
@@ -1051,7 +1057,21 @@
                 btn.innerHTML = `<i class="fa-solid fa-phone"></i> ${contact.phone}`;
                 btn.onclick = () => window.location.href = `tel:${contact.phone.replace(/\s/g, '')}`;
             }
-        }
+
+            // Automatically hide the contact details after 5 seconds
+            setTimeout(() => {
+                if (type === 'email') {
+                    btn.innerHTML = '<i class="fa-solid fa-envelope"></i> Email';
+                } else if (type === 'linkedin') {
+                    btn.innerHTML = '<i class="fa-brands fa-linkedin-in"></i> LinkedIn';
+                } else if (type === 'phone') {
+                    btn.innerHTML = '<i class="fa-solid fa-phone"></i> Phone';
+                }
+
+                // Restore the reveal functionality
+                btn.onclick = () => window.revealContact(btn, type);
+            }, 5000);
+        };
 
         window.printDoc = function(type) {
             document.body.classList.remove('print-mode-resume', 'print-mode-cover-letter');
@@ -1098,7 +1118,7 @@
 
                             <!-- Fully Isolated PDF Print Hero -->
                             <div class="print-only">
-                                <h1 class="hero-name">${data.name}</h1>
+                                <h1 class="hero-name">${data.name.toUpperCase()}</h1>
                                 <p class="hero-title">${data.title.join(" | ")}</p>
                                 <div class="print-contacts">
                                     <span>${data.contact.linkedin}</span> &nbsp;|&nbsp;
@@ -1207,7 +1227,7 @@
                                                 <h4 class="mb-2 mb-md-0 fw-bold">${exp.company}</h4>
                                                 <div class="d-flex flex-column align-items-md-end text-md-end">
                                                     <span class="text-muted fw-bold">
-                                                        <i class="fa-regular fa-calendar me-1"></i> ${exp.startDate} - ${exp.endDate}
+                                                        <i class="fa-regular fa-calendar me-1"></i> ${checkDate(exp.startDate)} - ${checkDate(exp.endDate)}
                                                     </span>
                                                     <span class="text-accent fw-bold mt-1" style="font-size: 0.85rem;">
                                                         <i class="fa-regular fa-clock me-1"></i> ${companyDuration}
@@ -1221,7 +1241,7 @@
                                                     <li class="role-item">
                                                         <div class="role-title">${role.title}</div>
                                                         <div class="role-hover-data">
-                                                            <div class="role-dates">${role.startDate} - ${role.endDate}</div>
+                                                            <div class="role-dates">${checkDate(role.startDate)} - ${checkDate(role.endDate)}</div>
                                                             <div class="role-duration text-accent fw-bold">(${roleDuration})</div>
                                                         </div>
                                                     </li>
@@ -1239,7 +1259,7 @@
                                     <div style="margin-bottom: 12pt;">
                                         <div class="print-flex-row">
                                             <div style="font-weight: bold;">${exp.company}</div>
-                                            <div>${exp.startDate} - ${exp.endDate}</div>
+                                            <div>${checkDate(exp.startDate)} - ${checkDate(exp.endDate)}</div>
                                         </div>
                                     </div>
                                 `).join('')}
