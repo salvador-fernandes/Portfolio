@@ -582,7 +582,7 @@
             section {
                 padding: 0 !important;
                 background: #fff !important;
-                margin-bottom: 12pt !important;
+                margin-bottom: 10pt !important;
             }
             .container, .row, .col-lg-10, .col-md-6, .col-lg-6, .col-12 {
                 width: 100% !important;
@@ -600,7 +600,7 @@
                 background: #fff !important;
                 display: block !important;
                 text-align: center !important;
-                margin-bottom: 15pt !important;
+                margin-bottom: 10pt !important;
             }
             .hero-name {
                 font-size: 18pt !important;
@@ -611,7 +611,7 @@
             }
             .hero-title {
                 font-size: 11pt !important;
-                margin-bottom: 8pt !important;
+                margin-bottom: 5pt !important;
                 text-align: center !important;
                 font-weight: normal !important;
             }
@@ -621,7 +621,7 @@
                 justify-content: center !important;
                 gap: 10pt !important;
                 font-size: 11pt !important;
-                margin-bottom: 10pt !important;
+                margin-bottom: 5pt !important;
             }
             .print-contacts span {
                 display: inline-block;
@@ -633,7 +633,7 @@
                 width: 100% !important;
                 height: 1pt !important;
                 background-color: #000 !important;
-                margin-bottom: 15pt !important;
+                margin-bottom: 5pt !important;
             }
 
             /* Section Headers */
@@ -643,7 +643,7 @@
                 text-transform: uppercase !important;
                 border-bottom: 1px solid #000 !important;
                 padding-bottom: 2pt !important;
-                margin-bottom: 8pt !important;
+                margin-bottom: 5pt !important;
                 margin-top: 15pt !important;
                 display: block !important;
             }
@@ -665,14 +665,14 @@
             .timeline-job { margin-bottom: 10pt !important; }
 
             /* Experience Layout */
-            .exp-header { display: flex !important; justify-content: space-between !important; margin-bottom: 6pt !important; }
+            .exp-header { display: flex !important; justify-content: space-between !important; margin-bottom: 5pt !important; }
             .exp-company { font-size: 11pt !important; font-weight: bold !important; margin: 0 !important; }
             .exp-dates { font-size: 11pt !important; font-weight: normal !important; margin: 0 !important; }
             .role-list { display: none !important; } /* Hidden designations */
             
             /* Engagements Formatting */
             .engagement-grid { display: block !important; }
-            .engagement-card { margin-bottom: 12pt !important; } /* page-break-inside: auto overrides avoid */
+            .engagement-card { margin-bottom: 10pt !important; } /* page-break-inside: auto overrides avoid */
             
             .engagement-title { 
                 font-size: 11pt !important;
@@ -694,13 +694,13 @@
             .engagement-brief { 
                 display: block !important; 
                 font-size: 11pt !important; 
-                margin-top: 4pt !important; 
-                margin-bottom: 4pt !important; 
+                margin-top: 5pt !important; 
+                margin-bottom: 5pt !important; 
                 text-align: justify !important;
             } 
             
             .print-only-bullets { margin-top: 0 !important; font-size: 11pt !important; }
-            .print-only-bullets ul { padding-left: 15pt !important; margin-bottom: 6pt !important; margin-top: 0 !important; }
+            .print-only-bullets ul { padding-left: 15pt !important; margin-bottom: 5pt !important; margin-top: 0 !important; }
             .print-only-bullets li { margin-bottom: 2pt !important; text-align: left !important; }
 
             /* Skills Formatting */
@@ -708,7 +708,7 @@
             .ats-skills {
                 font-size: 11pt !important;
                 line-height: 1.4 !important;
-                margin-bottom: 6pt !important;
+                margin-bottom: 5pt !important;
             }
 
             /* Education & Certifications Layout */
@@ -726,10 +726,10 @@
 
             /* Awards Formatting */
             .award-title { font-size: 11pt !important; font-weight: bold !important; margin-bottom: 2pt !important; }
-            .award-desc { font-size: 11pt !important; margin-bottom: 4pt !important; text-align: justify !important; }
+            .award-desc { font-size: 11pt !important; margin-bottom: 5pt !important; text-align: justify !important; }
 
             /* About Profile Summary */
-            #about .d-flex { margin-bottom: 6pt !important; }
+            #about .d-flex { margin-bottom: 5pt !important; }
             #about p { font-size: 11pt !important; margin-bottom: 0 !important; }
 
             /* Cover Letter specific */
@@ -1208,14 +1208,14 @@
                         practical: "Architected and deployed an independent web application utilizing WordPress as the core CMS. Managed the complete hosting configuration, MySQL database binding, and secure domain routing.",
                         specialized: "Developed custom PHP and CSS modifications to tailor the frontend UI/UX. Hardened site security using specialized plugins and implemented caching mechanisms to optimize load performance.",
                         projects: ["Independent Web Development Project"]
-                    }/*,
+                    },
                     {
                         name: "React",
                         focus: "Building dynamic, single-page application (SPA) frontends.",
                         practical: "Developed interactive, component-based user interfaces for modern web applications.",
                         specialized: "Managed application state, consumed RESTful APIs, and optimized rendering performance to deliver seamless user experiences.",
                         projects: ["Internal Product Development & Prototyping"]
-                    }*/
+                    }
                 ],
                 "Tools & Platforms": [{
                         name: "Git, GitHub, GitLab",
@@ -1507,7 +1507,7 @@
                             
                             <!-- Isolated Print About -->
                             <div class="print-only">
-                                <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 4pt;">
+                                <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 2pt;">
                                    ${data.map(p => `<li style="text-align: justify; margin-bottom: 2pt;">${p}</li>`).join('')}
                                 </ul>
                             </div>
@@ -1612,12 +1612,12 @@
                     <!-- Isolated Print Engagements -->
                     <div class="print-only">
                         ${data.map(proj => `
-                            <div style="margin-bottom: 12pt;">
+                            <div style="margin-bottom: 10pt;">
                                 <div style="margin-bottom: 2pt;">
                                     <span style="font-size: 13pt; font-weight: bold;">${proj.title}</span> | <span style="font-style: italic;">Client: ${proj.client}</span>
                                 </div>
-                                <div style="text-align: justify; margin-bottom: 4pt;">${proj.brief}</div>
-                                <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 4pt;">
+                                <div style="text-align: justify; margin-bottom: 2pt;">${proj.brief}</div>
+                                <ul style="padding-left: 15pt; margin-top: 0; margin-bottom: 2pt;">
                                     ${proj.bullets.map(b => `<li style="text-align: justify; margin-bottom: 2pt;">${b}</li>`).join('')}
                                 </ul>
                                 <div style="text-align: justify;"><strong>Technology Stack:</strong> ${proj.techStack.join(', ')}</div>
@@ -1656,7 +1656,7 @@
                     <div class="print-only">
 						<h2 class="section-title">Core Competencies</h2>
                         ${categories.map(category => `
-                            <div style="margin-bottom: 8pt;">
+                            <div style="margin-bottom: 10pt;">
                                 <div style="font-weight: bold; margin-bottom: 2pt;">${category}</div>
                                 <div style="text-align: justify; line-height: 1.4;">${data[category].map(s => s.name).join(', ')}</div>
                             </div>
@@ -1699,7 +1699,7 @@
                     <div class="print-only">
 						<h2 class="section-title">Certifications</h2>
                         ${data.map(cert => `
-                            <div class="print-flex-row" style="margin-bottom: 6pt;">
+                            <div class="print-flex-row" style="margin-bottom: 2pt;">
                                 <div style="text-align: justify;">
                                     <span style="font-weight: bold;">${cert.title}</span> (${cert.issuer})
                                 </div>
