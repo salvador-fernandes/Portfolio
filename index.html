@@ -974,7 +974,7 @@
                         projects: "IBM Security Verify Product Engineering"
                     },
                     {
-                        name: "ISVG-IM/IVIG",
+                        name: "ISVG-IM/ISIM/IVIG",
                         focus: "Designing complex workflow architectures and identity provisioning frameworks.",
                         practical: "Developed customized workflows, lifecycle rules, workflow extensions, and custom Java-based integrations to fully automate identity lifecycle management.",
                         specialized: "Built robust provisioning policies, reconciliation profiles, and custom adapter workflows to streamline secure onboarding across complex target systems.",
@@ -1765,46 +1765,63 @@
             document.getElementById('modalTitle').innerText = data.title;
             document.getElementById('modalSubTitle').innerText = data.client;
 
-            document.getElementById('skillModalBody').innerHTML = `
-                <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check text-accent me-2"></i> Key Responsibilities & Achievements</h6>
-                    <ul class="modal-bullets" id="modalBullets">
+            var modalContext = ``
+                + ((data.bullets != null && data.bullets.length > 0) ? `
+                <div class="mb-4">
+                    <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-list-check text-accent me-2"></i> Key Responsibilities & Achievements</h6>
+                    <ul class="modal-bullets">
                         ${data.bullets.map(b => `<li class="justified-text">${b}</li>`).join('')}
                     </ul>
-                    
+                <div>
+                 ` : ``) 
+                + ((data.techStack != null && data.techStack.length > 0) ? `
+                <div class="mb-4">    
                     <h6 class="fw-bold text-primary mb-3 mt-4"><i class="fa-solid fa-microchip text-accent me-2"></i> Technology Stack</h6>
-                    <div id="modalTech" class="d-flex flex-wrap">
+                    <div class="d-flex flex-wrap">
                         ${data.techStack.map(t => `<span class="tech-badge">${t}</span>`).join('')}
                     </div>
-            `;
+                </div>
+                ` : ``);
 
-            // Show Modal
-            const myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            myModal.show();
+            document.getElementById('skillModalBody').innerHTML = modalContext;
+
+            if(modalContext != null && modalContext.trim() != "") {
+                const myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+                myModal.show();
+            }
         };
 
         window.openSkillModal = function(category, skillIndex) {
             const skill = portfolioData.skills[category][skillIndex];
+            if (!skill) return;
             
             document.getElementById('modalTitle').innerText = skill.name;
             document.getElementById('modalSubTitle').innerText = skill.focus;
-            document.getElementById('skillModalBody').innerHTML = `
+            var modalContext = ``
+                + ((skill.practical != null && skill.practical.trim() != "") ? `
                 <div class="mb-4">
                     <h6 class="fw-bold text-primary"><i class="fa-solid fa-laptop-code text-accent me-2"></i> Practical Application</h6>
                     <p class="text-muted small justified-text mb-0" style="line-height: 1.6;">${skill.practical}</p>
                 </div>
+                ` : ``) 
+                + ((skill.specialized != null && skill.specialized.trim() != "") ? `
                 <div class="mb-4">
                     <h6 class="fw-bold text-primary"><i class="fa-solid fa-cogs text-accent me-2"></i> Specialized Configurations</h6>
                     <p class="text-muted small justified-text mb-0" style="line-height: 1.6;">${skill.specialized}</p>
                 </div>
+                ` : ``) 
+                + ((false && skill.projects != null && skill.projects.trim() != "") ? `
                 <div>
                     <h6 class="fw-bold text-primary"><i class="fa-solid fa-network-wired text-accent me-2"></i> Project Integration</h6>
                     <p class="text-muted small mb-0 fw-semibold">${skill.projects}</p>
                 </div>
-            `;
+                ` : ``);
+            document.getElementById('skillModalBody').innerHTML = modalContext;
 
-            // Show Modal
-            const myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            myModal.show();
+            if(modalContext != null && modalContext.trim() != "") {
+                const myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+                myModal.show();
+            }
         };
 
         // Initialize Application
