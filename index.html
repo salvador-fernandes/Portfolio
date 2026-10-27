@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="name_title"></title>
-    
+    <link id="favicon" rel="icon" type="image/svg+xml" href="">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -750,7 +750,7 @@
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-expand-lg fixed-top glass-nav">
         <div class="container">
-            <a class="navbar-brand" href="#hero">SF.</a>
+            <a class="navbar-brand" href="#hero" ><img id="nav-logo"/></a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fa-solid fa-bars text-dark"></i>
             </button>
@@ -811,6 +811,36 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const logoContent = `
+            <text x="256" y="320" font-family="system-ui, sans-serif" font-size="170" font-weight="800" text-anchor="middle">
+                <tspan fill="#3b82f6">&lt;</tspan>
+                <tspan fill="#1c2434">SF </tspan>
+                <tspan fill="#3b82f6">/&gt;</tspan>
+            </text>
+            `;
+
+            const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">${logoContent}</svg>`;
+            const faviconDataUrl = "data:image/svg+xml," + encodeURIComponent(faviconSvg);
+
+            const navSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 170 512 170">${logoContent}</svg>`;
+            const navDataUrl = "data:image/svg+xml," + encodeURIComponent(navSvg);
+
+            const favicon = document.getElementById('favicon');
+            if (favicon) favicon.href = faviconDataUrl;
+
+            const navLogo = document.getElementById('nav-logo');
+            if (navLogo) {
+                navLogo.src = navDataUrl;
+                navLogo.style.height = "30px"; // Set your desired height
+                navLogo.style.width = "100px"; // Let the width adjust automatically based on the new crop
+                navLogo.style.display = "block";
+            }
+        });
+    </script>
 
     <script>
         // Set Current Year in Footer
@@ -902,7 +932,7 @@
                     techStack: ["ISVG-IM", "ISVG-IG", "SailPoint IIQ", "BeanShell Scripting", "ISDI/SDI", "Java 8", "JavaScript", "PowerShell", "Bash", "GitLab", "ServiceNow"]
                 },
                 {
-                    title: "IAM Product Engineering",
+                    title: "IBM Security Verify Product Engineering",
                     client: "IBM Security Verify",
                     brief: "Led the development of IAM product features, automated testing, and core integrations for IBM Security Verify SaaS as a Scrum Master & Lead Developer.",
                     icon: "fa-solid fa-code-branch",
@@ -950,21 +980,21 @@
                         focus: "Enforcing Zero Trust architectures and enterprise-wide risk mitigation.",
                         practical: "Designed and implemented robust identity security postures across Banking and Healthcare sectors, ensuring strict compliance with regulatory standards (HIPAA, SOX).",
                         specialized: "Configured adaptive authentication, risk-based access policies, and continuous identity threat monitoring to mitigate insider threats and credential compromise.",
-                        projects: ["Enterprise IAM Solutions (Comerica, BayCare)", " Amgen"]
+                        projects: ["Enterprise IAM Solutions", " IAM Customization & Support"]
                     },
                     {
                         name: "Identity & Access Management (IAM)",
                         focus: "End-to-end design, engineering, and delivery of enterprise security implementations.",
                         practical: "Led IAM initiatives from high-level architecture through production deployment, managing complex integrations between legacy on-premise directories and cloud applications.",
                         specialized: "Architected centralized identity hubs supporting SSO, MFA, and federated access using SAML 2.0, OAuth 2.0, and OIDC protocols.",
-                        projects: ["Across all major engagements (8+ years experience)"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Identity Governance & Administration (IGA)",
                         focus: "Architecting automated identity lifecycle, compliance, and auditing solutions.",
                         practical: "Deployed comprehensive IGA architectures to manage user access securely. Configured optimized database connection pools via iiq.properties and accurately mapped application server directory structures.",
                         specialized: "Automated complex provisioning and access workflows using custom BeanShell scripting. Implemented advanced database schema extensions and utilized Task Partitioning to drastically reduce processing time during large-scale identity aggregations.",
-                        projects: ["Enterprise IAM Solutions", "Amgen", "SailPoint Implementations"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "ISV SaaS",
@@ -978,28 +1008,28 @@
                         focus: "Designing complex workflow architectures and identity provisioning frameworks.",
                         practical: "Developed customized workflows, lifecycle rules, workflow extensions, and custom Java-based integrations to fully automate identity lifecycle management.",
                         specialized: "Built robust provisioning policies, reconciliation profiles, and custom adapter workflows to streamline secure onboarding across complex target systems.",
-                        projects: ["Amgen", "IBM Security Verify", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "ISVG-IG/IGI",
                         focus: "Deploying enterprise identity governance, role mining, and risk management.",
                         practical: "Implemented user access certification campaigns, Segregation of Duties (SoD) policies, and comprehensive audit reporting solutions.",
                         specialized: "Engineered customized hierarchy rules, risk models, and continuous compliance dashboards ensuring strict adherence to enterprise RBAC frameworks.",
-                        projects: ["Amgen", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "ISDI/TDI",
                         focus: "Building robust data integration (ETL) and synchronization pipelines.",
                         practical: "Engineered identity feeds and custom AssemblyLines connecting disparate enterprise HR systems, Active Directory, and downstream applications.",
                         specialized: "Automated real-time and batch identity data synchronization across complex IAM infrastructures using JavaScript and custom connector configurations.",
-                        projects: ["Amgen", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IAM Customization & Support"]
                     },
                     {
                         name: "ISV-IQ/ISIQ",
                         focus: "Implementing identity analytics and actionable intelligence.",
                         practical: "Deployed ISV-IQ to provide deep visibility into access risks, orphan accounts, and entitlement proliferation.",
                         specialized: "Configured intelligent analytics dashboards and integrated identity risk scoring with existing SIEM tools (e.g., Azure Sentinel) for proactive threat response.",
-                        projects: ["Enterprise IAM Solutions (Ahold Delhaize, Comerica)"]
+                        projects: ["Enterprise IAM Solutions", "IAM Customization & Support"]
                     },
                     {
                         name: "ISIGADI",
@@ -1013,21 +1043,21 @@
                         focus: "Directory services architecture, schema design, and administration.",
                         practical: "Managed enterprise directory architectures including IBM Security Directory Server (ISDS) and Microsoft Active Directory.",
                         specialized: "Performed complex schema extensions, configured secure LDAPS communication, and optimized search filters/indexes for high-performance identity lookups.",
-                        projects: ["Amgen", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "SailPoint IIQ",
                         focus: "Foundational architecture, environment configuration, and identity lifecycle workflow configurations.",
                         practical: "Configured core IIQ environment settings, including optimizing iiq.properties and mapping directory structures. Assisted in designing and implementing foundational workflow configurations for user lifecycle events (Joiner, Mover, Leaver).",
                         specialized: "Explored advanced platform capabilities such as Task Partitioning and schema extensions, alongside utilizing introductory BeanShell scripting to develop custom identity rules.",
-                        projects: ["IAM Customization & Support (Amgen)"]
+                        projects: ["IAM Customization & Support"]
                     },
                     {
                         name: "Identity Lifecycle Management",
                         focus: "Automating Joiner, Mover, and Leaver (JML) business processes.",
                         practical: "Designed zero-touch automation for onboarding, role changes, and secure offboarding aligned with HR-driven data feeds.",
                         specialized: "Engineered temporal access policies, automated grace periods, and secure entitlement revocation workflows to minimize orphaned accounts.",
-                        projects: ["Across all enterprise IAM engagements"]
+                        projects: ["Enterprise IAM Solutions", "IAM Customization & Support"]
                     }
                 ],
                 "Technical Leadership & Delivery": [{
@@ -1035,42 +1065,42 @@
                         focus: "Designing highly available, scalable enterprise security infrastructures.",
                         practical: "Architected multi-tier IAM environments covering development, UAT, staging, and production with High Availability (HA) and Disaster Recovery (DR) topologies.",
                         specialized: "Led capacity planning, hardware/infrastructure sizing, and seamless migration strategies for large-scale enterprise deployments.",
-                        projects: ["Comerica", "BayCare Health System", "ISSQUARED Inc."]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "IAM Solution Architecture",
                         focus: "Translating complex security requirements into technical IAM blueprints.",
                         practical: "Produced comprehensive High-Level Design (HLD) and Low-Level Design (LLD) documentation for multi-product identity ecosystems.",
                         specialized: "Evaluated existing IAM maturity, conducted gap analysis, and charted strategic roadmaps for modernization to cloud/SaaS-based identity platforms.",
-                        projects: ["Amgen", "Persistent Systems Lead Engagements"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Governance Architecture",
                         focus: "Designing enterprise-wide compliance and access review frameworks.",
                         practical: "Structured global certification campaigns, mapped business roles to IT entitlements, and established governance advisory boards.",
                         specialized: "Architected dynamic role models (RBAC/ABAC) and automated remediation workflows to sustain continuous audit readiness.",
-                        projects: ["Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Integration Design",
                         focus: "Architecting secure API and middleware communication channels.",
                         practical: "Designed robust integration patterns connecting IAM systems with ITSM platforms (ServiceNow), HRIS (Workday), and PAM solutions (CyberArk).",
                         specialized: "Developed custom REST/SOAP wrappers, defined data mapping protocols, and ensured secure token exchange across disparate systems.",
-                        projects: ["IBM Security Verify Product Engineering", "Amgen"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "Requirements Analysis",
                         focus: "Bridging the gap between business stakeholders and engineering teams.",
                         practical: "Conducted exhaustive discovery workshops with HR, IT Security, and Application Owners to define specific identity use cases and compliance needs.",
                         specialized: "Translated ambiguous business directives into actionable, sprint-ready technical user stories with clear acceptance criteria.",
-                        projects: ["Directorate of Technical Education", "Persistent Systems"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "Stakeholder Management",
                         focus: "Ensuring cross-functional alignment and project transparency.",
                         practical: "Facilitated steering committee meetings, provided technical demonstrations to C-level executives, and managed client expectations regarding delivery timelines.",
                         specialized: "Successfully negotiated technical scope and mitigated implementation risks by maintaining proactive, transparent communication channels with enterprise clients.",
-                        projects: ["Amgen", "Comerica", "BayCare"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "Scrum Master",
@@ -1085,7 +1115,7 @@
                         focus: "Building robust enterprise backends, APIs, and custom IAM extensions.",
                         practical: "Developed custom product features, workflow extensions, and RESTful APIs using standard Java and J2EE paradigms.",
                         specialized: "Authored custom provisioning adapters, complex rule logic, and integrated Java-based solutions with Selenium, Cucumber, and Micro-K8s environments.",
-                        projects: ["IBM Security Verify", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Python",
@@ -1099,42 +1129,42 @@
                         focus: "Customizing IAM workflows, UI components, and integration mapping.",
                         practical: "Wrote extensive server-side JavaScript for IBM Security Directory Integrator (ISDI) and IBM Security Verify workflow routing.",
                         specialized: "Customized frontend identity portals and implemented complex attribute mapping and transformation logic in IAM data synchronization pipelines.",
-                        projects: ["Amgen", "Centralized Admission Process Platform"]
+                        projects: ["Enterprise IAM Solutions", "IAM Customization & Support"]
                     },
                     {
                         name: "SQL (MySQL, Oracle, DB2, MS SQL, Postgre)",
                         focus: "Database design, optimization, and complex data extraction.",
                         practical: "Designed normalized relational schemas, managed complex joins, and authored stored procedures to support backend IAM operations.",
                         specialized: "Performed direct DB2/Oracle manipulations for identity reporting, optimized query execution plans, and managed database connection pooling architectures.",
-                        projects: ["Enterprise IAM Solutions", "Directorate of Technical Education"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "Bash / Shell Scripting",
                         focus: "Automating Linux/Unix server administration and deployments.",
                         practical: "Wrote robust Bash scripts for automated log rotation, service monitoring, and CI/CD pipeline execution.",
                         specialized: "Automated the deployment of Liberty server instances, container orchestration in Micro-K8s, and secure file transfers (SFTP) for identity feeds.",
-                        projects: ["IBM Security Verify Product Engineering", "Amgen"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "PowerShell",
                         focus: "Windows Server automation and Active Directory management.",
                         practical: "Developed PowerShell modules to automate Active Directory user provisioning, group management, and Exchange mailbox configurations.",
                         specialized: "Engineered automated reconciliation scripts to audit Windows environments, reducing manual operational effort and improving support efficiency.",
-                        projects: ["Amgen", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Batch (BAT)",
                         focus: "Legacy Windows task automation and environment configuration.",
                         practical: "Authored Batch scripts for local developer environment setups, scheduled task execution, and system diagnostics.",
                         specialized: "Maintained legacy batch automation routines supporting older enterprise infrastructure during migration to modern IAM platforms.",
-                        projects: ["Persistent Systems Internal Tooling"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "Golang",
                         focus: "Building high-performance, concurrent backend utilities.",
                         practical: "Explored and utilized Go for developing lightweight, fast-executing microservices and CLI tools for developer productivity.",
                         specialized: "Leveraged Go's concurrency model (Goroutines) to process large datasets and network requests efficiently in cloud-native environments.",
-                        projects: ["IBM Security Verify Product Engineering (Internal Tooling)"]
+                        projects: ["IBM Security Verify Product Engineering"]
                     }
                 ],
                 "Testing & Web Technologies": [{
@@ -1156,21 +1186,21 @@
                         focus: "Ensuring zero-defect releases through comprehensive quality engineering.",
                         practical: "Designed overarching test strategies encompassing unit, integration, functional, and regression testing for enterprise software.",
                         specialized: "Built automated testing frameworks that executed nightly in Jenkins/GitLab, generating automated health reports for product stakeholders.",
-                        projects: ["IBM Security Verify", "Centralized Admission Process"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "HTML5, CSS3, Bootstrap",
                         focus: "Designing responsive, accessible frontend user interfaces.",
                         practical: "Developed customized, branded self-service identity portals and administrative dashboards for end-users.",
                         specialized: "Utilized Bootstrap grid systems and modern CSS3 features to ensure cross-device compatibility and an intuitive User Experience (UX).",
-                        projects: ["Centralized Admission Process Platform", "IAM Portal Customization"]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "PHP & Laravel",
                         focus: "Full-stack web application development and MVC architecture.",
                         practical: "Spearheaded a full-stack automated admission and analytics portal digitizing the student allocation process for professional courses.",
                         specialized: "Leveraged Laravel's ORM (Eloquent), routing, and security features to build a highly secure, scalable admission management platform handling live, sensitive data.",
-                        projects: ["Directorate of Technical Education, Goa"]
+                        projects: ["Centralized Admission Process Platform"]
                     },
                     {
                         name: "WordPress",
@@ -1192,21 +1222,21 @@
                         focus: "Version control and collaborative source code management.",
                         practical: "Managed complex branching strategies, pull requests, and code reviews across distributed engineering teams.",
                         specialized: "Integrated GitLab CI/CD pipelines to automate the building, testing, and deployment of IAM configurations and custom Java code.",
-                        projects: ["Across all major engagements"]
+                        projects: ["IBM Security Verify Product Engineering", "IAM Customization & Support", "Centralized Admission Process Platform"]
                     },
                     {
                         name: "JIRA, Confluence",
                         focus: "Agile project management and technical documentation.",
                         practical: "Administered Jira boards for Sprint tracking, backlog grooming, and defect management as a Scrum Master.",
                         specialized: "Created comprehensive architectural blueprints, API documentation, and runbooks in Confluence to establish a centralized knowledge base.",
-                        projects: ["Persistent Systems, ISSQUARED Inc."]
+                        projects: ["Enterprise IAM Solutions", "IBM Security Verify Product Engineering", "IAM Customization & Support"]
                     },
                     {
                         name: "ServiceNow",
                         focus: "ITSM integration and automated service request management.",
                         practical: "Integrated IAM platforms with ServiceNow to automate the creation, routing, and fulfillment of access request tickets.",
                         specialized: "Configured bi-directional API integrations ensuring real-time synchronization between ServiceNow catalogs and backend provisioning engines.",
-                        projects: ["Amgen", "Enterprise IAM Solutions"]
+                        projects: ["Enterprise IAM Solutions", "IAM Customization & Support"]
                     },
                     {
                         name: "JFrog Artifactory",
@@ -1813,7 +1843,7 @@
                     <p class="text-muted small justified-text mb-0" style="line-height: 1.6;">${skill.specialized}</p>
                 </div>
                 ` : ``) 
-                + ((false && skill.projects != null && skill.projects.length > 0) ? `
+                + ((skill.projects != null && skill.projects.length > 0) ? `
                 <div>
                     <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-network-wired text-accent me-2"></i> Project Integration</h6>
                     
